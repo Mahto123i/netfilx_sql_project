@@ -56,6 +56,7 @@ FROM
 ## 1. count the number of movies vs tv shows
 
 ...sql
+
 SELECT
 	TYPE,
 	COUNT(*) AS TATAL_CONTENT
