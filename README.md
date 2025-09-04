@@ -14,4 +14,4 @@ This project involves a comprehensive analysis of Netflix's movies and TV shows 
 
 ## Dataset
 The data for this project is sourced from the Kaggle dataset:
-* dataset link:** [movies dataset](https://www.kaggle.com/datasets/aspillai/netflix-stock-price-with-indicators)
+- **dataset link:** [movies dataset](https://www.kaggle.com/datasets/aspillai/netflix-stock-price-with-indicators)
