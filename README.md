@@ -1,1 +1,1 @@
-# netfilx_sql_project
+# Netfilx Movies And Tv Shows Data Analysis using sql
