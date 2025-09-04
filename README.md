@@ -55,7 +55,7 @@ FROM
 
 ## 1. count the number of movies vs tv shows
 
-...sql
+
 
 SELECT
 	TYPE,
@@ -64,11 +64,11 @@ FROM
 	NETFLIX
 GROUP BY
 	TYPE
-...
+
 
 ## 2. find the most common rating for movies and tv shows
 
-...sql
+
 SELECT
 	TYPE,
 	RATING
@@ -92,11 +92,11 @@ FROM
 	) AS T1
 WHERE
 	RANKING = 1
- ...
+
  
 ## 3. list all movies released in a specific year (e.g. 2020)
 
-...sql
+
 SELECT
 	*
 FROM
@@ -104,11 +104,11 @@ FROM
 WHERE
 	TYPE = 'Movie'
 	AND RELEASE_YEAR= 2020
-...
+
 
 ## 4. find the top 5 countries with the most content on netflix 
 
-...sql
+
 SELECT
 	UNNEST(STRING_TO_ARRAY(COUNTRY, ',')) AS NEW_COUNTRY,
 	COUNT(SHOW_ID) AS TOTAL_CONTENT
@@ -120,15 +120,15 @@ ORDER BY
 	2 DESC
 LIMIT
 	5
- ...
--- single country karne ke liye 
+
+## single country karne ke liye 
 	
 SELECT
 	UNNEST(STRING_TO_ARRAY(COUNTRY, ',')) AS NEW_COUNTRY
 FROM
 	NETFLIX
 
--- 5. Identify the longest movi or tv show duration
+## 5. Identify the longest movi or tv show duration
 
 SELECT
 	*
@@ -142,7 +142,7 @@ WHERE
 		FROM
 			NETFLIX
 	)
--- 6. find content added in the last 5 years
+## 6. find content added in the last 5 years
 
 SELECT
 	*
@@ -153,7 +153,7 @@ WHERE
 SELECT
 	CURRENT_DATE - INTERVAL '5 years'
 
--- 7. find all the movies/ tv show by director 'rajiv chilaka'
+## 7. find all the movies/ tv show by director 'rajiv chilaka'
 SELECT
 	*
 FROM
@@ -162,7 +162,7 @@ WHERE
 	DIRECTOR LIKE '%Rajiv Chilaka%'
 
 
--- 8. list all tv show with more than 5 seasons
+## 8. list all tv show with more than 5 seasons
 
 SELECT
 	*
@@ -173,7 +173,7 @@ WHERE
 	AND SPLIT_PART(DURATION, ' ', 1)::NUMERIC > 5
 
 
--- 9. count the number of content items in each genre
+## 9. count the number of content items in each genre
 
 SELECT
 	UNNEST(STRING_TO_ARRAY(LISTED_IN, ',')) AS GENRE,
@@ -182,7 +182,7 @@ FROM
 	NETFLIX GROUP BY
 	1
 	
--- 10. find the average release year for content produced in a specifice country
+## 10. find the average release year for content produced in a specifice country
 
 SELECT
 	EXTRACT(
@@ -208,7 +208,7 @@ WHERE
 GROUP BY
 	1
 
--- 11. list all movies that are documentaries
+## 11. list all movies that are documentaries
 
 SELECT
 	*
@@ -226,7 +226,7 @@ FROM
 WHERE
 	DIRECTOR IS NULL
 
--- 13. find how many movies actor 'salman khamn' appeared in last 10 years
+## 13. find how many movies actor 'salman khamn' appeared in last 10 years
 
 SELECT
 	*
@@ -240,7 +240,7 @@ WHERE
 			CURRENT_DATE
 	) - 10
 
--- 14. find the top 10 actors who have appeared in the higest number of movies produced in india
+## 14. find the top 10 actors who have appeared in the higest number of movies produced in india
 
 SELECT
 	UNNEST(STRING_TO_ARRAY(CASTS, ',')) AS ACTORS,
@@ -255,9 +255,7 @@ ORDER BY
 	2 DESC LIMIT
 	10
 
--- 15. categorize the content based  on the presence of the keywords 'kill' and 'violence' in the
---description filed. label content containing these keywords as 'Bad'and all other content as 'Good'count 
---how many item fall into each category.
+## 15. categorize the content based  on the presence of the keywords 'kill' and 'violence' in the description filed. label content containing these keywords as 'Bad'and all other content as 'Good'count  how many item fall into each category.
 
 WITH
 	NEW_TABLE AS (
